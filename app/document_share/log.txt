@@ -1,0 +1,3 @@
+SMTP Error: Could not connect to SMTP host. Failed to connect to server
+SMTP Error: Could not connect to SMTP host. Failed to connect to server
+SMTP Error: Could not connect to SMTP host. Failed to connect to server
