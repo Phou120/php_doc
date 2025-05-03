@@ -1,3 +1,31 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the user_id, user_name, and user_email exist in localStorage
+    const userId = localStorage.getItem('user_id');
+    const userName = localStorage.getItem('user_name');
+    const userEmail = localStorage.getItem('user_email');
+  
+    // If any of these values are missing, redirect to the login page
+    if (!userId || !userName || !userEmail) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true
+      });
+      
+      Toast.fire({
+          icon: 'error',
+          title: 'Access Denied',
+          text: 'You must be logged in to access this page.',
+      }).then(() => {
+        window.location.href = '../../../../../documentation_system/form_login.php'; 
+      });
+    }
+  });
+   
+ 
+ 
  // Check if user is loaded from localStorage if not already set
  document.addEventListener('DOMContentLoaded', function() {
     // Store the user ID in localStorage for persistence across page navigation

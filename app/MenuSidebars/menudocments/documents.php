@@ -117,6 +117,33 @@
     <?php include 'doc_modal_structure.php'; ?>
 
     <script src="documents.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the user_id, user_name, and user_email exist in localStorage
+        const userId = localStorage.getItem('user_id');
+        const userName = localStorage.getItem('user_name');
+        const userEmail = localStorage.getItem('user_email');
+
+        // If any of these values are missing, redirect to the login page
+        if (!userId || !userName || !userEmail) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 500,
+                timerProgressBar: true
+            });
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Access Denied',
+                text: 'You must be logged in to access this page.',
+            }).then(() => {
+                window.location.href = '../../../../../documentation_system/form_login.php';
+            });
+        }
+    });
+    </script>
 </body>
 
 </html>

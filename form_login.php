@@ -6,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Fetch user by email
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -16,14 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verify the password
         if (password_verify($password, $user['password'])) {
-            // Set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_email'] = $user['email'];
 
-            // Output JavaScript to set LocalStorage and redirect
             echo "<script>
                 localStorage.setItem('user_id', '" . htmlspecialchars($user['id'], ENT_QUOTES) . "');
                 localStorage.setItem('user_name', '" . htmlspecialchars($user['name'], ENT_QUOTES) . "');
@@ -45,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,10 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
+    <style>
+    #togglePassword {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    </style>
 </head>
 
 <body class="bg-gray-50">
-
     <div class="flex justify-center items-center min-h-screen bg-gray-200">
         <div class="bg-white p-8 rounded-lg shadow-lg w-96">
             <h2 class="text-2xl font-semibold text-center mb-6">Login</h2>
@@ -84,9 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="password" class="block text-gray-700">Password</label>
                     <div class="relative">
                         <input type="password" id="password" name="password" required
-                            class="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="w-full px-4 py-2 pl-10 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Enter your password">
                         <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
+                        <i class="fas fa-eye absolute right-3 top-3 text-gray-400 cursor-pointer"
+                            id="togglePassword"></i>
                     </div>
                 </div>
 
@@ -107,13 +109,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
 
             <div class="text-center">
-                <p class="text-gray-600">Don't have an account? <a href="./app/form/register_form.php"
-                        class="text-blue-600">Sign up</a>
+                <p class="text-gray-600">Don't have an account?
+                    <a href="./app/form/register_form.php" class="text-blue-600">Sign up</a>
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript for password toggle -->
+    <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+    </script>
 </body>
 
 </html>

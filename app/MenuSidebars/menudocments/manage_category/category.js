@@ -1,4 +1,60 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if the user_id, user_name, and user_email exist in localStorage
+    const userId = localStorage.getItem('user_id');
+    const userName = localStorage.getItem('user_name');
+    const userEmail = localStorage.getItem('user_email');
+  
+    // If any of these values are missing, redirect to the login page
+    if (!userId || !userName || !userEmail) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true
+      });
+      
+      Toast.fire({
+          icon: 'error',
+          title: 'Access Denied',
+          text: 'You must be logged in to access this page.',
+      }).then(() => {
+        window.location.href = '../../../../../documentation_system/form_login.php'; 
+      });
+    }
+  });
+  
+
+  // logout
+  function handleLogout() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout',
+        position: 'top-end',
+        timer: 0,
+        showConfirmButton: true,
+        showLoaderOnConfirm: true,
+        toast: true,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'swal2-small-popup'
+        },
+        preConfirm: () => {
+            localStorage.removeItem("user_id");
+            localStorage.removeItem("user_name");
+            localStorage.removeItem("user_email");
+            window.location.href = "../../../../../documentation_system/form_login.php";
+        }
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
     // Get modal elements
     const openModalButton = document.getElementById('openModalButton');
     const closeModalButton = document.getElementById('closeModalButton');
