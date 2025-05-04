@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
     <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
     <style>
     .file-upload-container {
         transition: all 0.3s ease;
@@ -77,27 +78,10 @@
 </head>
 
 <body class="bg-gray-50">
-    <?php
-    include_once "../../../connect_db.php";
-    $counter = 1;
 
-    $search_term = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
-
-    $sql = "
-        SELECT document_shares.*, documents.title, documents.file_name, documents.file_path
-        FROM document_shares
-        JOIN documents ON document_shares.document_id = documents.id
-        WHERE documents.title LIKE '%$search_term%' 
-        OR document_shares.shared_with_email LIKE '%$search_term%'
-        ORDER BY document_shares.id DESC
-    ";
-
-
-    $result = $conn->query($sql);
-    ?>
-
+    <?php include "document_share_query.php" ?>
     <div class="flex h-screen">
-        <?php include 'doc_share_sidebar.php'; ?>
+        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
 
         <main class="flex-1 p-8 overflow-auto">
             <?php
@@ -111,6 +95,7 @@
     <?php include 'doc_modal_structure.php'; ?>
 
     <script src="doc_share.js"></script>
+    <script src="../../../../documentation_system/js/sidebar.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the user_id, user_name, and user_email exist in localStorage

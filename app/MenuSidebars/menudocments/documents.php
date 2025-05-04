@@ -10,7 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
     <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"> -->
     <style>
+    /* Your existing styles plus the new font-family */
+    body {
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* Apply Noto Sans to tables */
+    table {
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* Style table headers */
+    th {
+        font-weight: 600;
+        /* Semi-bold */
+    }
+
+    /* Style table data (cells) */
+    td {
+        font-weight: 400;
+        /* Regular */
+    }
+
     .file-upload-container {
         transition: all 0.3s ease;
     }
@@ -102,7 +126,8 @@
     ?>
 
     <div class="flex h-screen">
-        <?php include 'menu_doc_sidebar.php'; ?>
+        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
+
 
         <main class="flex-1 p-8 overflow-auto">
             <?php
@@ -119,6 +144,7 @@
     <?php include 'doc_modal_structure.php'; ?>
 
     <script src="documents.js"></script>
+    <script src="../../../../documentation_system/js/sidebar.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the user_id, user_name, and user_email exist in localStorage

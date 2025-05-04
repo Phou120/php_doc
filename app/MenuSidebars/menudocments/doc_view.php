@@ -110,12 +110,12 @@
                             <div class="ml-4">
                                 <div class="font-medium text-gray-900">
                                     <?php 
-                                                $title = htmlspecialchars($row['title']);
-                                                if (!empty($search_term) && stripos($title, $search_term) !== false) {
-                                                    $title = preg_replace('/(' . preg_quote($search_term, '/') . ')/i', '<span class="bg-yellow-100">$1</span>', $title);
-                                                }
-                                                echo $title;
-                                                ?>
+                                        $title = htmlspecialchars($row['title']);
+                                        if (!empty($search_term) && stripos($title, $search_term) !== false) {
+                                            $title = preg_replace('/(' . preg_quote($search_term, '/') . ')/i', '<span class="bg-yellow-100">$1</span>', $title);
+                                        }
+                                        echo $title;
+                                        ?>
                                 </div>
                                 <div class="text-sm text-gray-500">
                                     <?php 

@@ -4,7 +4,6 @@
          <h1 class="text-2xl font-bold text-gray-800">
              <i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>Dashboard
          </h1>
-         <p class="text-gray-500 text-sm mt-1">Welcome back, Admin</p>
      </div>
 
      <div class="flex items-center space-x-4">

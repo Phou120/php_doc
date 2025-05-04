@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
     <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
+
 </head>
 
 <body class="bg-gray-100 h-screen w-screen">
     <div class="flex h-full w-full">
-        <?php include 'sidebar.php'; ?>
+        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
 
         <main class="flex-1 p-8 overflow-auto">
             <?php 
@@ -29,6 +31,8 @@
     <?php include 'change_password_modal.php'; ?>
 
     <script src="./js/profile.js"></script>
+    <script src="../../../../documentation_system/js/sidebar.js"></script>
+
     <?php if ($success): ?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {

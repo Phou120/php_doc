@@ -11,47 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
     <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
-    <style>
-    /* Custom styles for enhanced visuals */
-    .glass-effect {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-    .file-icon {
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        transform: translateY(0);
-    }
-
-    .file-card:hover .file-icon {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .pulse-animation {
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
-        }
-
-        70% {
-            box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-        }
-
-        100% {
-            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-        }
-    }
-
-    .header-gradient {
-        background: linear-gradient(120deg, #f0f9ff 0%, #e6f7ff 100%);
-    }
-    </style>
+    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
 </head>
 
 <body class="bg-gray-50">
@@ -61,7 +21,7 @@
 
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <?php include 'db_sidebar.php'; ?>
+        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
 
         <main class="flex-1 p-8 overflow-auto bg-gradient-to-br from-gray-50 to-blue-50">
 
@@ -76,6 +36,7 @@
 
     <?php include 'db_modal_structure.php'; ?>
     <script src="js/dashboard.js"></script>
+    <script src="../../../../documentation_system/js/sidebar.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the user_id, user_name, and user_email exist in localStorage
@@ -103,6 +64,7 @@
         }
     });
     </script>
+
 </body>
 
 </html>

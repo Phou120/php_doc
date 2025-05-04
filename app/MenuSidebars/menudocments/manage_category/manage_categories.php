@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
     <link rel="icon" href="../../../../../documentation_system/app/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../../../documentation_system/css/interface.css">
 </head>
 
 <body class="bg-gray-50">
@@ -26,9 +27,8 @@
 
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <?php 
-        include 'category_sidebar.php'; 
-        ?>
+        <?php include '../../../../../documentation_system/app/sidebar.php'; ?>
+
 
         <main class="flex-1 p-8 overflow-auto">
             <!-- Header -->
@@ -43,6 +43,7 @@
         </main>
     </div>
     <script src="category.js"></script>
+    <script src="../../../../../documentation_system/js/sidebar.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the user_id, user_name, and user_email exist in localStorage
