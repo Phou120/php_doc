@@ -19,7 +19,7 @@
                                 ?>
 
                  <tr class="table-row">
-                     <td class="px-8 py-5 whitespace-nowrap">
+                     <td class="px-4 py-5 whitespace-nowrap">
                          <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
                              <?= $counter++ ?>
                          </div>
@@ -55,12 +55,12 @@
                      </td>
                      <td class="px-6 py-4">
                          <?php if ($doc['action'] == 'view'): ?>
-                         <span class="badge badge-view">
-                             <i class="fas fa-eye mr-1"></i> Viewed
+                         <span class="badge badge-view text-green-500">
+                             <i class="fas fa-eye text-green-500 mr-1"></i> Viewed
                          </span>
                          <?php elseif ($doc['action'] == 'download'): ?>
-                         <span class="badge badge-download">
-                             <i class="fas fa-download mr-1"></i> Downloaded
+                         <span class="badge badge-download text-purple-500">
+                             <i class="fas fa-download text-purple-500 mr-1"></i> Download
                          </span>
                          <?php elseif ($doc['action'] == 'delete'): ?>
                          <span class="badge badge-delete">

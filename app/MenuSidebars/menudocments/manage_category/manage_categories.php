@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Font Awesome for file icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon (Website Logo in Browser Tab) -->
+    <link rel="icon" href="../../../../../documentation_system/app/images/DocManager.png" type="image/png">
 </head>
 
 <body class="bg-gray-50">

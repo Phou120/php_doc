@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon (Website Logo in Browser Tab) -->
+    <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
     <style>
     .file-upload-container {
         transition: all 0.3s ease;
