@@ -1,11 +1,23 @@
 <?php
-include_once '../../connect_db.php';
+// File: users_handler.php
 session_start();
+include_once '../../connect_db.php'; // Make sure this file correctly connects $conn
+
+// Function: Validate Input
+function validateInput($name, $email, $password) {
+    if (empty($name) || empty($email) || empty($password)) {
+        return "All fields are required!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return "Invalid email format.";
+    } elseif (strlen($password) < 6) {
+        return "Password must be at least 6 characters.";
+    }
+    return true;
+}
 
 // Function: Create User
 function createUser($conn, $name, $email, $password) {
-    // Check if email already exists
-    $check_sql = "SELECT id FROM users WHERE email = ?";
+    $check_sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
     if ($check_stmt = $conn->prepare($check_sql)) {
         $check_stmt->bind_param("s", $email);
         $check_stmt->execute();
@@ -15,7 +27,6 @@ function createUser($conn, $name, $email, $password) {
             return "Email is already registered.";
         }
 
-        // Insert new user
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $insert_sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
         if ($insert_stmt = $conn->prepare($insert_sql)) {
@@ -26,45 +37,63 @@ function createUser($conn, $name, $email, $password) {
                 return "Registration failed: " . $insert_stmt->error;
             }
         } else {
-            return "Error preparing insert: " . $conn->error;
+            return "Error preparing insert statement: " . $conn->error;
         }
     } else {
-        return "Error preparing select: " . $conn->error;
+        return "Error preparing select statement: " . $conn->error;
     }
 }
 
-// Handle JSON input
-$data = json_decode(file_get_contents('php://input'), true);
+// Function: Add User (admin use)
+function addUser($conn, $name, $email, $password) {
+    return createUser($conn, $name, $email, $password);
+}
 
-if ($data && isset($data['action'], $data['name'], $data['email'], $data['password'])) {
-    $action  = $data['action'];
-    $name    = trim($data['name']);
-    $email   = trim($data['email']);
-    $password = trim($data['password']);
+// Handle POST submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
+    isset($_POST['action'], $_POST['name'], $_POST['email'], $_POST['password'])) {
 
-    // Validation
-    if (empty($name) || empty($email) || empty($password)) {
-        echo json_encode(['success' => false, 'message' => "All fields are required!"]);
-        exit;
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo json_encode(['success' => false, 'message' => "Invalid email format."]);
-        exit;
+    $action = $_POST['action'];
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    // Validate input
+    $validation = validateInput($name, $email, $password);
+    if ($validation !== true) {
+        $_SESSION['error'] = $validation;
     } else {
-        $result = createUser($conn, $name, $email, $password);
-
-        if ($result === true) {
-            // Success
-            echo json_encode(['success' => true, 'message' => 'User created successfully.']);
-            exit;
+        if ($action === 'create') {
+            $result = createUser($conn, $name, $email, $password);
+            if ($result === true) {
+                $_SESSION['success'] = "User registered successfully.";
+                header("Location: /documentation_system/form_login.php");
+                exit;
+            } else {
+                $_SESSION['error'] = $result;
+            }
+        } elseif ($action === 'add-user') {
+            $result = addUser($conn, $name, $email, $password);
+            if ($result === true) {
+                $_SESSION['success'] = "User added successfully.";
+                header("Location: /documentation_system/app/MenuSidebars/menu_users/users.php");
+                exit;
+            } else {
+                $_SESSION['error'] = $result;
+            }
         } else {
-            // Failure
-            echo json_encode(['success' => false, 'message' => $result]);
-            exit;
+            $_SESSION['error'] = "Invalid action provided.";
         }
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Invalid or missing data.']);
+
+    // Redirect back to form if error occurred
+    if ($action === 'create') {
+        header("Location: /documentation_system/form_register.php");
+    } elseif ($action === 'add-user') {
+        header("Location: /documentation_system/app/MenuSidebars/menu_users/create_user_form.php");
+    }
+    exit;
 }
+
 $conn->close();
-exit;
 ?>
