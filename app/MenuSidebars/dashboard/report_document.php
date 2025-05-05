@@ -161,8 +161,7 @@
              <h3 class="font-medium text-gray-800">Upload File</h3>
              <p class="text-gray-500 text-sm mt-1">Add new documents</p>
          </a>
-         <a href="../../../../documentation_system/app/MenuSidebars/menudocments/manage_category/manage_categories.php"
-             class=" bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300
+         <a href="../manage_category/manage_categories.php" class=" bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300
                         text-center group">
              <div
                  class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition-colors">
