@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
           title: 'Access Denied',
           text: 'You must be logged in to access this page.',
       }).then(() => {
-        window.location.href = '../../../../../documentation_system/form_login.php'; 
+        window.location.href = '../../../form_login.php'; 
       });
     }
   });
@@ -74,7 +74,7 @@ function logoutUser() {
             localStorage.removeItem("user_id");
             localStorage.removeItem("user_name");
             localStorage.removeItem("user_email");
-            window.location.href = "../../../../../documentation_system/form_login.php";
+            window.location.href = "../../../form_login.php";
         }
     });
 }
@@ -269,7 +269,8 @@ function logoutUser() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Uploading...';
 
         try {
-            const response = await fetch('../../../../documentation_system/save_document.php', {
+            // const response = await fetch('../../document/save_document.php', {
+            const response = await fetch('../../document/save_document.php', {
                 method: 'POST',
                 body: formData
             });
@@ -380,7 +381,7 @@ saveBtn.addEventListener("click", () => {
         return;
     }
 
-    fetch("../../../../documentation_system/app/Category/save_category.php", {
+    fetch("../../Category/save_category.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -474,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Function to log document access
     function logDocumentAction(docId, action) {
-        return fetch('../../../../documentation_system/app/document_log/log_document_action.php', {
+        return fetch('../../document_log/log_document_action.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -527,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showLoaderOnConfirm: true,
                 preConfirm: () => {
                     return fetch(
-                            '../../../../documentation_system/app/document/delete_document.php', {
+                            '../../document/delete_document.php', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -644,7 +645,7 @@ document.getElementById('shareForm').addEventListener('submit', function(e) {
     });
 
     // Perform fetch request
-    fetch('../../../../documentation_system/app/document_share/save_document_share.php', {
+    fetch('../../document_share/save_document_share.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

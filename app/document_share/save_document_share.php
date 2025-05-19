@@ -9,8 +9,8 @@ error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 // Autoload PHPMailer
-require_once '../../../documentation_system/vendor/autoload.php';
-require_once '../../connect_db.php';
+require_once '../../vendor/autoload.php';
+include_once "../../configs/connect_db.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

@@ -7,3 +7,5 @@ composer require phpmailer/phpmailer
 
 ສ້າງ file ຊື່ວ່າ connect_db.php ຢູ່ນອກສຸດ ຫຼື ຢູ່ກັບ file form_login.php
 
+
+composer require vlucas/phpdotenv

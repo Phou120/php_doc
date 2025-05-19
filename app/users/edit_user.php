@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     $email = $data['email'];
 
     // Database connection
-    include_once "../../connect_db.php";
+    include_once '../../configs/connect_db.php';
 
     // Prepare your SQL query
     $sql = "UPDATE users SET name = ?, email = ? WHERE id = ?";

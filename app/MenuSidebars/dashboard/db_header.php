@@ -1,5 +1,5 @@
  <!-- Dashboard Header with improved design -->
- <header class="flex justify-between items-center mb-8 p-4 header-gradient rounded-2xl shadow-sm">
+ <header class="flex justify-between items-center mb-8 p-4 bg-white rounded-2xl shadow-sm">
      <div>
          <h1 class="text-2xl font-bold text-gray-800">
              <i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>Dashboard

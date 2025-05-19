@@ -1,7 +1,7 @@
 <?php
 // File: users_handler.php
 session_start();
-include_once '../../connect_db.php'; // Make sure this file correctly connects $conn
+include_once '../../configs/connect_db.php';
 
 // Function: Validate Input
 function validateInput($name, $email, $password) {
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
             $result = addUser($conn, $name, $email, $password);
             if ($result === true) {
                 $_SESSION['success'] = "User added successfully.";
-                header("Location: /documentation_system/app/MenuSidebars/menu_users/users.php");
+                header("Location: /../../MenuSidebars/menu_users/users.php");
                 exit;
             } else {
                 $_SESSION['error'] = $result;
@@ -87,12 +87,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     }
 
     // Redirect back to form if error occurred
-    if ($action === 'create') {
-        header("Location: /documentation_system/form_register.php");
-    } elseif ($action === 'add-user') {
-        header("Location: /documentation_system/app/MenuSidebars/menu_users/create_user_form.php");
-    }
-    exit;
+    // if ($action === 'create') {
+    //     header("Location: /documentation_system/form_register.php");
+    // } elseif ($action === 'add-user') {
+    //     header("Location: /documentation_system/app/MenuSidebars/menu_users/create_user_form.php");
+    // }
+    // exit;
 }
 
 $conn->close();

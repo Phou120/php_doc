@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
           title: 'Access Denied',
           text: 'You must be logged in to access this page.',
       }).then(() => {
-        window.location.href = '../../../../../documentation_system/form_login.php'; 
+        window.location.href = '../../../form_login.php'; 
       });
     }
   });
@@ -77,7 +77,7 @@ function handleLogout() {
             localStorage.removeItem("user_id");
             localStorage.removeItem("user_name");
             localStorage.removeItem("user_email");
-            window.location.href = "../../../../../documentation_system/form_login.php";
+            window.location.href = "../../../form_login.php";
         }
     });
 }

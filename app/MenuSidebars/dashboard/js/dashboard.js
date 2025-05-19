@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: 'Access Denied',
         text: 'You must be logged in to access this page.',
     }).then(() => {
-      window.location.href = '../../../../../documentation_system/form_login.php'; 
+      window.location.href = '../../../../form_login.php'; 
     });
   }
 });
@@ -101,49 +101,55 @@ document.querySelectorAll('.dropdown button').forEach(button => {
 
 
 // function handleLogout() {
-//     Swal.fire({
-//         title: 'Are you sure?',
-//         text: "You will be logged out.",
-//         icon: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         confirmButtonText: 'Yes, logout'
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             localStorage.removeItem("user_id");
-//             localStorage.removeItem("user_name");
-//             localStorage.removeItem("user_email");
-
-//             // Redirect to login page
-//             window.location.href = "../../../../../documentation_system/form_login.php";
-//         }
-//     });
+//   Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You will be logged out.",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonColor: '#3085d6',
+//       cancelButtonColor: '#d33',
+//       confirmButtonText: 'Yes, logout',
+//       position: 'top-end',
+//       timer: 0,
+//       showConfirmButton: true,
+//       showLoaderOnConfirm: true,
+//       toast: true,
+//       timerProgressBar: true,
+//       customClass: {
+//           popup: 'swal2-small-popup'
+//       },
+//       preConfirm: () => {
+//           localStorage.removeItem("user_id");
+//           localStorage.removeItem("user_name");
+//           localStorage.removeItem("user_email");
+//           // window.location.href = "../../../../../";
+//       }
+//   });
 // }
 
-function handleLogout() {
-  Swal.fire({
-      title: 'Are you sure?',
-      text: "You will be logged out.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, logout',
-      position: 'top-end',
-      timer: 0,
-      showConfirmButton: true,
-      showLoaderOnConfirm: true,
-      toast: true,
-      timerProgressBar: true,
-      customClass: {
-          popup: 'swal2-small-popup'
-      },
-      preConfirm: () => {
-          localStorage.removeItem("user_id");
-          localStorage.removeItem("user_name");
-          localStorage.removeItem("user_email");
-          window.location.href = "../../../../../documentation_system/form_login.php";
-      }
-  });
+  function handleLogout() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout',
+        position: 'top-end',
+        timer: 0,
+        showConfirmButton: true,
+        showLoaderOnConfirm: true,
+        toast: true,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'swal2-small-popup'
+        },
+        preConfirm: () => {
+            localStorage.removeItem("user_id");
+            localStorage.removeItem("user_name");
+            localStorage.removeItem("user_email");
+            window.location.href = "../../../MenuSidebars/menudocments/documents.php";
+        }
+    });
 }

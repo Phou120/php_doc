@@ -1,5 +1,5 @@
 <?php
-include_once "../../connect_db.php";
+include_once '../../configs/connect_db.php';
 
 // Check if it's a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

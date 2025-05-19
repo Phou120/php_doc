@@ -1,0 +1,84 @@
+ /* Your existing styles plus the new font-family */
+    body {
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* Apply Noto Sans to tables */
+    table {
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* Style table headers */
+    th {
+        font-weight: 600;
+        /* Semi-bold */
+    }
+
+    /* Style table data (cells) */
+    td {
+        font-weight: 400;
+        /* Regular */
+    }
+
+    .file-upload-container {
+        transition: all 0.3s ease;
+    }
+
+    .file-preview-box {
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        min-height: 120px;
+    }
+
+    .file-preview-box:hover {
+        transform: scale(1.01);
+    }
+
+    .upload-icon-pulse {
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0.7;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.7;
+        }
+    }
+
+    .file-info {
+        word-break: break-all;
+    }
+
+    #searchContainer {
+        background-color: #f9fafb;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+    }
+
+    #searchContainer.active {
+        background-color: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border: 2px solid #3b82f6;
+    }
+
+    #searchInput {
+        border: none;
+        background: transparent;
+        width: 100%;
+    }
+
+    #searchInput:focus {
+        outline: none;
+    }
+
+    .search-results-info {
+        transition: all 0.3s ease;
+    }

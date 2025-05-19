@@ -1,6 +1,6 @@
 <?php
 // log_document_action.php
-include_once "../../connect_db.php";
+include_once "../../configs/connect_db.php";
 
 header('Content-Type: application/json');
 session_start();

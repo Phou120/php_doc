@@ -6,7 +6,7 @@
             </span>
             User Directory
         </h2>
-        <a href="../../../../documentation_system/app/MenuSidebars/menu_users/users.php"
+        <a href="../../MenuSidebars/menu_users/users.php"
             class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 text-blue-600 font-medium">
             View All Users
             <i class="fas fa-arrow-right ml-2 text-sm"></i>

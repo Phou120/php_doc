@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center mb-6">
     <div class="flex space-x-4">
-        <a href="../../../../documentation_system/app/MenuSidebars/manage_category/manage_categories.php"
+        <a href="../../MenuSidebars/manage_category/manage_categories.php"
             class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center shadow-md transition-all duration-200">
             <i class="fas fa-folder-open mr-2"></i>
             Manage Category

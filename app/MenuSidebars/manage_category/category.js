@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
           title: 'Access Denied',
           text: 'You must be logged in to access this page.',
       }).then(() => {
-        window.location.href = '../../../../documentation_system/form_login.php'; 
+        window.location.href = '../../../form_login.php';
       });
     }
   });
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem("user_id");
             localStorage.removeItem("user_name");
             localStorage.removeItem("user_email");
-            window.location.href = "../../../../documentation_system/form_login.php";
+            window.location.href = "../../../form_login.php";
         }
     });
 }
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const response = await fetch(
-                '../../../../documentation_system/app/Category/save_category.php', {
+                '../../Category/save_category.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -172,7 +172,7 @@ document.getElementById('editCategoryForm').addEventListener('submit', async fun
 
     try {
         const response = await fetch(
-            '../../../../documentation_system/app/Category/update_category.php', {
+            '../../Category/update_category.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -251,7 +251,7 @@ function confirmDeleteCategory(id) {
         if (result.isConfirmed) {
             try {
                 const response = await fetch(
-                    '../../../../documentation_system/app/Category/delete_category.php', {
+                    '../../Category/delete_category.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

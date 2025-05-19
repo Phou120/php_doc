@@ -65,7 +65,7 @@
              <i class="fas fa-clock text-blue-600 mr-2"></i>
              Recent Files
          </h2>
-         <a href="../../../../documentation_system/app/MenuSidebars/menudocments/documents.php"
+         <a href="../../MenuSidebars/menudocments/documents.php"
              class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center group">
              View All
              <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform"></i>
@@ -179,7 +179,7 @@
              <h3 class="font-medium text-gray-800">Share</h3>
              <p class="text-gray-500 text-sm mt-1">Collaborate with team</p>
          </a>
-         <a href="../../../../documentation_system/app/MenuSidebars/profile/profile.php"
+         <a href="../../MenuSidebars/profile/profile.php"
              class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
              <div
                  class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-500 transition-colors">

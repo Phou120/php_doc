@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database connection
-include_once "../../../connect_db.php";
+include_once '../../configs/connect_db.php';
 
 // Check if user_id is passed in the URL
 if (isset($_GET['user_id'])) {

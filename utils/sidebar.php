@@ -67,7 +67,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         </a>
 
         <!-- Users Link -->
-        <a href="/documentation_system/app/MenuSidebars/menu_users/users.php" data-tooltip="Users"
+        <a href="../menu_users/users.php" data-tooltip="Users"
             class="menu-item flex items-center space-x-4 p-3 rounded-xl transition-all duration-300
                        <?php echo ($current_page == 'users.php') ? 'bg-blue-100 text-blue-600 shadow-md' : 'text-gray-600 hover:bg-blue-50'; ?>">
             <div

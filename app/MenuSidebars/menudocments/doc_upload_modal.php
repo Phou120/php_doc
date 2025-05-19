@@ -19,7 +19,7 @@
                         class="w-full p-3 border border-gray-300 rounded-lg mt-2 focus:ring-2 focus:ring-blue-500"
                         required>
                         <?php
-                            include_once "../../../connect_db.php";
+                            include_once "../../../configs/connect_db.php";
                             $sql = "SELECT id, name FROM document_categories";
                             $categories = $conn->query($sql);
                             while ($category = $categories->fetch_assoc()) {

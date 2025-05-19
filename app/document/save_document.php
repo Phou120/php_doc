@@ -1,6 +1,6 @@
 <?php
 // Database connection
-include_once "../../connect_db.php";
+include_once '../../configs/connect_db.php';
 
 // Set response header
 header('Content-Type: application/json');
@@ -83,7 +83,7 @@ try {
     }
 
     // Create upload directory if it doesn't exist
-    $upload_dir = '../../../documentation_system/app/uploads/';
+    $upload_dir = '../../uploads/';
     if (!file_exists($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }

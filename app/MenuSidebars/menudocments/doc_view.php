@@ -1,5 +1,6 @@
 <!-- Table View -->
 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+
     <div class="overflow-x-auto">
         <!-- Enhanced Search Bar -->
         <div class="mb-6 px-6 pt-6">
@@ -48,7 +49,7 @@
         <?php if ($result->num_rows > 0): ?>
         <table class="w-full">
             <thead>
-                <tr class="text-left text-gray-600 text-sm bg-gray-50">
+                <tr class="text-left text-gray-600 text-sm bg-gray-200">
                     <th class="px-6 py-3 font-medium text-center">N</th>
                     <th class="px-6 py-3 font-medium text-center">Upload By</th>
                     <th class="px-6 py-3 font-medium text-center">Name</th>

@@ -10,67 +10,36 @@
     <!-- Font Awesome for file icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
-    <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
-    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
+    <link rel="icon" href="../../../assets/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../assets/css/interface.css">
 </head>
 
-<body class="bg-gray-50">
-    <?php
-    // Database connection
-    include_once "../../../connect_db.php";
-    $counter = 1;
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <?php include_once 'manage_category_query.php'; ?>
 
-    // Fetch all documents
-    $sql = "SELECT id, name, description FROM document_categories ORDER BY id DESC";
-    $result = $conn->query($sql);
-    ?>
-
-    <div class="flex h-screen">
+    <div class="flex flex-1">
         <!-- Sidebar -->
-        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
+        <?php include '../../../utils/sidebar.php'; ?>
 
+        <main class="flex-1 overflow-auto">
+            <div class="p-8 flex-1 overflow-auto">
+                <!-- Header -->
+                <?php 
+                    include 'header.php'; 
+                    include 'actions.php'; 
+                    include 'modal.php'; 
+                    include 'category_table.php'; 
+                    include 'edit_category_modal.php'; 
+                ?>
+            </div>
 
-        <main class="flex-1 p-8 overflow-auto">
-            <!-- Header -->
-            <?php 
-                include 'header.php'; 
-                include 'actions.php'; 
-                include 'modal.php'; 
-                include 'category_table.php'; 
-                include 'edit_category_modal.php'; 
-            ?>
+            <!-- Footer -->
+            <?php include '../../../utils/footer.php'; ?>
 
         </main>
     </div>
     <script src="category.js"></script>
-    <script src="../../../../documentation_system/js/sidebar.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if the user_id, user_name, and user_email exist in localStorage
-        const userId = localStorage.getItem('user_id');
-        const userName = localStorage.getItem('user_name');
-        const userEmail = localStorage.getItem('user_email');
-
-        // If any of these values are missing, redirect to the login page
-        if (!userId || !userName || !userEmail) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 500,
-                timerProgressBar: true
-            });
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Access Denied',
-                text: 'You must be logged in to access this page.',
-            }).then(() => {
-                window.location.href = '../../../../documentation_system/form_login.php';
-            });
-        }
-    });
-    </script>
+    <script src="../../../assets/js/sidebar.js"></script>
 </body>
 
 </html>

@@ -1,36 +1,5 @@
 <!-- Beautiful Category Management Table -->
 <div class="max-w-6xl mx-auto">
-    <!-- Card Header -->
-    <!-- <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">
-            <i class="fas fa-folder text-teal-600 mr-3"></i>Categories
-        </h2>
-        <button onclick="openAddModal()"
-            class="flex items-center px-5 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
-            <i class="fas fa-plus-circle mr-2"></i>
-            Add Category
-        </button>
-    </div> -->
-
-    <!-- Search Bar -->
-    <!-- <div class="bg-white p-4 rounded-t-xl shadow-md border-b border-gray-200">
-        <div class="flex flex-wrap items-center justify-between gap-3">
-            <div class="relative flex items-center">
-                <i class="fas fa-search text-gray-400 absolute left-3"></i>
-                <input type="text" id="categorySearch" placeholder="Search categories..."
-                    class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 w-full sm:w-64">
-            </div>
-            <div class="flex items-center space-x-3">
-                <select
-                    class="border border-gray-300 rounded-lg py-2 px-4 focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
-                    <option value="">All Categories</option>
-                    <option value="active">Active</option>
-                    <option value="archived">Archived</option>
-                </select>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Table Section -->
     <div class="bg-white rounded-b-xl shadow-[0_0_20px_rgba(0,0,0,0.08)] overflow-hidden">
         <div class="overflow-x-auto">
@@ -38,24 +7,24 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            class="w-[10px] px-7 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                             <div class="flex items-center">
                                 <span>No</span>
-                                <i class="fas fa-sort ml-2 text-gray-400"></i>
+                                <i class="fas ml-2 text-gray-400"></i>
                             </div>
                         </th>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-2 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                             <div class="flex items-center">
                                 <span>Category Name</span>
-                                <i class="fas fa-sort ml-2 text-gray-400"></i>
+                                <i class="fas ml-2 text-gray-400"></i>
                             </div>
                         </th>
                         <th scope="col"
                             class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                             <div class="flex items-center">
                                 <span>Description</span>
-                                <i class="fas fa-sort ml-2 text-gray-400"></i>
+                                <i class="fas ml-2 text-gray-400"></i>
                             </div>
                         </th>
                         <th scope="col"
@@ -89,7 +58,7 @@
                             <div class="text-sm text-gray-600 max-w-md">
                                 <?php 
                                 $description = htmlspecialchars($row['description']);
-                                echo strlen($description) > 100 ? substr($description, 0, 100) . "..." : $description; 
+                                echo $description; 
                                 ?>
                             </div>
                         </td>

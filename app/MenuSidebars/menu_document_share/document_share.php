@@ -9,85 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Favicon (Website Logo in Browser Tab) -->
-    <link rel="icon" href="../../../../documentation_system/app/images/DocManager.png" type="image/png">
-    <link rel="stylesheet" href="../../../../documentation_system/css/interface.css">
-    <style>
-    .file-upload-container {
-        transition: all 0.3s ease;
-    }
-
-    .file-preview-box {
-        transition: transform 0.2s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        min-height: 120px;
-    }
-
-    .file-preview-box:hover {
-        transform: scale(1.01);
-    }
-
-    .upload-icon-pulse {
-        animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-        0% {
-            opacity: 0.7;
-        }
-
-        50% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0.7;
-        }
-    }
-
-    .file-info {
-        word-break: break-all;
-    }
-
-    #searchContainer {
-        background-color: #f9fafb;
-        border-radius: 9999px;
-        transition: all 0.3s ease;
-    }
-
-    #searchContainer.active {
-        background-color: white;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        border: 2px solid #3b82f6;
-    }
-
-    #searchInput {
-        border: none;
-        background: transparent;
-        width: 100%;
-    }
-
-    #searchInput:focus {
-        outline: none;
-    }
-
-    .search-results-info {
-        transition: all 0.3s ease;
-    }
-    </style>
+    <link rel="icon" href="../../../assets/images/DocManager.png" type="image/png">
+    <link rel="stylesheet" href="../../../assets/css/interface.css">
+    <link rel="stylesheet" href="../../../assets/css/document_share.css">
 </head>
 
 <body class="bg-gray-50">
 
     <?php include "document_share_query.php" ?>
     <div class="flex h-screen">
-        <?php include '../../../../documentation_system/app/sidebar.php'; ?>
+        <?php include '../../../utils/sidebar.php'; ?>
 
-        <main class="flex-1 p-8 overflow-auto">
-            <?php
+        <main class="flex-1 overflow-auto">
+            <div class="p-8 flex-1 overflow-auto">
+                <?php
             include 'doc_share_header.php';
             include 'doc_share_view.php';
             ?>
+            </div>
+
+            <?php include '../../../utils/footer.php'; ?>
 
         </main>
     </div>
@@ -95,8 +36,8 @@
     <?php include 'doc_modal_structure.php'; ?>
 
     <script src="doc_share.js"></script>
-    <script src="../../../../documentation_system/js/sidebar.js"></script>
-    <script>
+    <script src="../../../assets/js/sidebar.js"></script>
+    <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if the user_id, user_name, and user_email exist in localStorage
         const userId = localStorage.getItem('user_id');
@@ -122,7 +63,7 @@
             });
         }
     });
-    </script>
+    </script> -->
 </body>
 
 </html>

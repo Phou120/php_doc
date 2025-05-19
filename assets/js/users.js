@@ -32,7 +32,7 @@ function handleLogout() {
             localStorage.removeItem("email");
 
             // Redirect to login page
-            window.location.href = "../../../../../documentation_system/form_login.php";
+            window.location.href = "../form_login.php";
         }
     });
 }

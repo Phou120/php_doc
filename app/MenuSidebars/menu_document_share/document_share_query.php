@@ -1,5 +1,5 @@
 <?php
-    include_once "../../../connect_db.php";
+    include_once "../../../configs/connect_db.php";
     $counter = 1;
 
     $search_term = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';

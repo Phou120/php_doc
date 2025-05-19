@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
           title: 'Access Denied',
           text: 'You must be logged in to access this page.',
       }).then(() => {
-        window.location.href = '../../../../../documentation_system/form_login.php'; 
+        window.location.href = '../../../../../doc-system/form_login.php'; 
       });
     }
   });
@@ -48,7 +48,7 @@ function loadUserFromStorage() {
             confirmButtonText: 'Go to Login'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "../../../../../documentation_system/form_login.php";
+                window.location.href = "../../../../form_login.php";
             }
         });
     } else {
@@ -88,7 +88,7 @@ function handleLogout() {
             localStorage.removeItem("user_id");
             localStorage.removeItem("user_name");
             localStorage.removeItem("user_email");
-            window.location.href = "../../../../../documentation_system/form_login.php";
+            window.location.href = "../../../form_login.php";
         }
     });
 }
@@ -144,7 +144,7 @@ function initPasswordChange() {
             }
 
             // Perform AJAX request to update the password.
-            fetch('../../../../documentation_system/app/users/change_password.php', {
+            fetch('../../../users/change_password.php', {
                     method: 'POST',
                     body: formData
                 })
