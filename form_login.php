@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="icon" href="./assets/images/DocManager.png" type="image/png">
+    <script src="./assets/js/tailwind.config.js"></script>
 
     <style>
     #togglePassword {
@@ -66,7 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body class="bg-gray-50">
     <div class="flex justify-center items-center min-h-screen bg-gray-200">
-        <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-xl w-full max-w-md mx-4 relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary-600/10 rounded-full"></div>
+            <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-primary-600/10 rounded-full"></div>
+
+            <!-- Logo -->
+            <div class="flex justify-center mb-6">
+                <img src="./assets/images/DocManager.png" alt="DocManager Logo" class="h-12">
+            </div>
             <h2 class="text-2xl font-semibold text-center mb-6">Login</h2>
 
             <!-- Login Form -->

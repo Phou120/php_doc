@@ -144,7 +144,7 @@ function initPasswordChange() {
             }
 
             // Perform AJAX request to update the password.
-            fetch('../../../users/change_password.php', {
+            fetch('../../users/change_password.php', {
                     method: 'POST',
                     body: formData
                 })
@@ -171,6 +171,7 @@ function initPasswordChange() {
                         // Reset the form so the user can change their password again if needed
                         form.reset();
                     } else {
+                        console.log(result);
                         // Error feedback if the password update fails
                         Swal.fire({
                             icon: 'error',
