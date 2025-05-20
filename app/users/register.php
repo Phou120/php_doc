@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
             $result = createUser($conn, $name, $email, $password);
             if ($result === true) {
                 $_SESSION['success'] = "User registered successfully.";
-                header("Location: /documentation_system/form_login.php");
+                header("Location: ../../../../form_login.php");
                 exit;
             } else {
                 $_SESSION['error'] = $result;
