@@ -12,12 +12,6 @@
     <link rel="icon" href="../../../assets/images/DocManager.png" type="image/png">
     <link rel="stylesheet" href="../../../assets/css/interface.css">
     <link rel="stylesheet" href="../../../assets/css/documents.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-    body {
-        font-family: 'P', sans-serif;
-    }
-    </style>
 </head>
 
 <body class="bg-gray-50">

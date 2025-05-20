@@ -1,11 +1,12 @@
  /* Your existing styles plus the new font-family */
     body {
-        font-family: 'Noto Sans', sans-serif;
+        font-family: 'Phetsarath OT', sans-serif;
     }
 
-    /* Apply Noto Sans to tables */
-    table {
-        font-family: 'Noto Sans', sans-serif;
+    table,
+    th,
+    td {
+        font-family: 'Phetsarath OT', sans-serif;
     }
 
     /* Style table headers */
