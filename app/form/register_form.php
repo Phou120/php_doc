@@ -154,7 +154,7 @@
 
             <!-- Global Error Message -->
             <div id="global-error"
-                class="p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 flex items-start animate-shake hidden">
+                class="p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 items-start animate-shake hidden">
                 <i class="fas fa-exclamation-circle mt-1 mr-3 text-red-500"></i>
                 <div id="global-error-message"></div>
             </div>
